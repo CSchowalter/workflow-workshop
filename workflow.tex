@@ -1,0 +1,138 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Warsaw}  %% Themenwahl
+\usepackage[ngerman]{babel}
+
+\title{SPITZE Workflow}
+\author{Christian Schowalter}
+\date{\today}
+
+\begin{document}
+\maketitle
+%\frame{\tableofcontents[currentsection]}
+
+\section{Konzepte}
+\begin{frame} %%Eine Folie
+  \frametitle{Vorwort}
+  \begin{Definition}
+  	\begin{itemize}
+  	\item Dieser Teil des Vortrags soll möglichst ohne die Nennung konkreter Tools ablaufen.
+    \item Kann offensichtlich wirken. Das ist ein gutes Zeichen.
+    \item Überlegt euch bitte, ob und wie die Konzepte in eurem Fall anwendbar sind!
+    \end{itemize}
+  \end{Definition}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{DRY}
+		\begin{itemize}
+			\item Don’t repeat yourself!
+			\item Gegenteil von WET (\glqq write everything twice\grqq , \glqq we enjoy typing\grqq , \glqq waste everyone’s time\grqq)
+			\item Wenn Änderungen an einer Stelle nötig sind, sollte das keine weiteren Änderungen bedingen
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{SPOT}
+		\begin{itemize}
+			\item Es gibt genau einen Ort, an dem der aktuelle Stand eines bestimmten Arbeitsergebnisses zu finden ist
+			\item Betrifft nicht Work in Progress
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Staging}
+		\begin{itemize}
+			\item Stufen auf dem Weg zur offiziellen Veröffentlichung
+			\item Funktioniert nur sauber wenn man einen SPOT hat
+			\item Bedeutung der Stages ist voher(!) zu definieren.
+			\item klare Bedingungen, nicht irgendwie nach Gefühl
+			\item üblich:
+			\begin{enumerate}
+				\item Development
+				\item Testing
+				\item Production
+			\end{enumerate}
+
+
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Dezentralisierung}
+		\begin{itemize}
+			\item Man kann den aktuellen Zwischenstand nehmen und für sich weiterarbeiten
+			\item Man sollte sich dabei nicht blockieren
+			\item Es muss einen Weg geben, die Arbeitsergebnisse zusammenzuführen (mergen) oder zu synchronisieren
+			\item Berücksichtigen, dass es einen SPOT gibt, wo man die Ergebnisse hinführt
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Versionierung}
+		\begin{itemize}
+			\item Zwischenergebnisse werden so verwaltet, dass man reverten kann
+			\item mit Kommentar wird Nachvollziehbarkeit erreicht
+			\item Versionen können Stages zugeordnet werden
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Interoperabilität}
+		\begin{itemize}
+			\item Selten deckt ein Tool alles ab, was man tun können will, also notwendig
+			\item Einschränkungen rechtzeitig feststellen!
+			\item Betrifft u.a. Dateitypen
+			\begin{itemize}
+				\item offene Formate
+			\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Dokumentation}
+
+\begin{frame}
+	\begin{block}{Doku… wann, wo, wie?}
+		\begin{itemize}
+			\pause
+			\item jetzt
+			\pause
+			\item überall
+			\pause
+			\item ordentlich
+
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Dokumentation, ernsthaft jetzt}
+		\begin{itemize}
+			\pause
+			\item möglichst früh anfangen. Nachtragen ist Krieg!
+			\item geschieht nicht nur in dem eigentlichen Dokument
+			\begin{description}
+				\item[Beispiel:] nachvollziehbare Versionen dokumentieren Erfahrungswerte und Arbeitsweise
+			\end{description}
+			\item sollte in den Workflow integriert sein
+			\item möglichst nicht lästig
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Metadokumentation}
+		\begin{itemize}
+		\item viel zu mühsam, zu dokumentieren, wie man dokumentiert
+		\item \href{https://opensource.com/open-organization/17/10/readme-maturity-model?sc_cid=70160000001273HAAQ}{irgendwas im Web anklicken und alles wird gut}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\end{document}
