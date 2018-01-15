@@ -1,0 +1,222 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Rochester}  %% Themenwahl
+\usepackage[ngerman]{babel}
+
+% Abschnittseinleitungsfolien einblenden
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\title{SPITZE Workflow 3: Was soll das mit dem git?}
+\author{Christian Schowalter}
+\date{\today}
+
+\begin{document}
+\maketitle
+%\frame{\tableofcontents[currentsection]}
+
+\section{Einführung}
+
+\begin{frame}
+	\frametitle{Vorwort}
+	\begin{block}{Warum git?}
+		\begin{itemize}
+			\item dezentral
+			\item flexibel
+			\item simpel
+			\item schnell
+			\item unterstützt nicht-lineares Arbeiten
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Grundlagen}
+	\begin{block}{ein paar Begriffe vorweg}
+		\begin{itemize}
+			\item Repository
+			\item Commit
+			\item Diff
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Einschränkungen}
+	\begin{block}{was nicht (gut) geht}
+		\begin{itemize}
+			\item Binärdateien verwalten
+			\item Deployment auf Produktivserver
+			\item Passwörter vergessen
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\includegraphics[width=\textwidth]{images/dont_panic.jpg}
+\end{frame}
+
+\begin{frame}
+Was git alleine nicht schafft, schafft git mit anderen Tools.
+\end{frame}
+
+\section{lokales Handwerkszeug}
+
+\begin{frame}
+	\frametitle{Repositorien}
+	\begin{block}{Was ist überhaupt ein Repository?}
+		\pause
+		lokaler Ordner, der von git verwaltet wird
+	\end{block}
+	\pause
+	\begin{block}{… und was ist da so drin?}
+		\begin{itemize}
+			\item Konfigurationsdateien
+				\pause
+			\item das was ihr da reintut
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Der Commit, das unbekannte Wesen}
+	\begin{block}{Woraus besteht ein Commit?}
+		\begin{itemize}
+			\item Commit Message
+				\pause
+			\item Snapshot der Dateiinhalte
+				\pause
+			\item Prüfsumme
+				\pause
+			\item Metadaten (Autor, Mail-Adresse, Datum)
+		\end{itemize}
+	\end{block}
+	\pause
+	\begin{block}{… und wozu soll das gut sein?}
+		\begin{itemize}
+			\item Grundbaustein der Versionierung
+				\pause
+			\item Entwicklungsgeschichte
+				\pause
+			\item Vertrauensbasis
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Der git Commit in seiner natürlichen Umgebug}
+	\begin{block}{Was man mit diesen Commits alles tun kann}
+		\begin{itemize}
+			\item log anschauen
+				\pause
+			\item gezielt auschecken
+				\pause
+			\item untereinander per Diff vergleichen
+				\pause
+			\item branchen
+				\pause
+			\item einiges weiteres (z.T.\ advanced)…
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Parallelwelten}
+	\begin{block}{Branch}
+		\begin{itemize}
+			\item basieren auf jew. einen Commit
+				\pause
+			\item Branches können…
+				\begin{itemize}
+					\item gebrancht werden
+					\item zusammengeführt werden
+					\item nachträglich auf anderen Commit basieren
+					\item verglichen werden
+				\end{itemize}
+				\pause
+			\item Wechsel zwischen Branches quasi jederzeit möglich
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Remote Repositories}
+
+\begin{frame}
+%	\includegraphics[width=\textwidth]{images/WelcometotheInternet.jpg} %TODO: Insert your favorite funpic here
+\end{frame}
+
+\begin{frame}
+	\frametitle{Repositorien von einem anderen Stern}
+	\begin{block}{remote repositories}
+		\begin{itemize}
+			\item haben die gleichen Features wie das lokale
+			\item flexibel, nachträglich änderbar
+			\item eigener Server oder GitLab, GitHub, Bitbucket…
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		Und dann ist automatisch alles online?
+		\pause
+%		\includegraphics[width=\textwidth]{images/hahaha_no.jpg} %TODO: Add another fine pic for your audience to enjoy
+	\end{center}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Mit dem Remote auf Du und Du}
+	\begin{block}{Wie arbeitet man online?}
+		\begin{itemize}
+			\item Synchronisiation mit remote repo passiert manuell
+				\pause
+				\begin{itemize}
+					\item es gibt (Windows-) Tools, die das automatisieren. Finger Weg davon!
+					\item Phasenweise ohne Internetzugang arbeiten problemlos
+				\end{itemize}
+				\pause
+			\item Pushen und Pullen als getrennte Aktionen
+		\end{itemize}
+	\end{block}
+\end{frame}				
+
+\begin{frame}
+	\frametitle{alles public, oder was?}
+	\begin{block}{Ein git repo als SPOT}
+		\begin{itemize}
+			\item gemeinsames remote repository für das ganze Team
+				\pause
+			\item Regeln notwendig
+				\pause
+				\begin{itemize}
+					\item Es gibt Rechteverwaltung in GitLab u.ä.
+					\item Arbeitsprozesse müssen trotzdem definiert ablaufen
+				\end{itemize}
+				\pause
+			\item Dazu mehr in einem eigenen Workshopteil (oder so…)
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{Fazit}
+
+\begin{frame}
+	\frametitle{Next up: Hands on}
+	\begin{center}
+		Wie geht es weiter?
+	\end{center}
+\end{frame}
+
+%git branch
+
+%git remote
+
+\end{document}
