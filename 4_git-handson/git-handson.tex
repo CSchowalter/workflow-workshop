@@ -1,0 +1,162 @@
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usetheme{Rochester}  %% Themenwahl
+\usepackage[ngerman]{babel}
+
+% Abschnittseinleitungsfolien einblenden
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=false]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+\title{SPITZE Workflow 4: git gud!}
+\author{Christian Schowalter}
+\date{\today}
+
+\begin{document}
+\maketitle
+%\frame{\tableofcontents[currentsection]}
+
+\section{Vorbereitung}
+
+\begin{frame}
+	\frametitle{Themen}
+	\begin{block}{alltägliches}
+		\begin{itemize}
+			\item Dateien verschieben
+			\item Fehler beheben 
+			\item Hotfixen
+			\item Taggen
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Spielregeln}
+	\begin{block}{Schummeln erlaubt}
+		\begin{itemize}
+			\item git Spickzettel 
+			\item Google fragen
+			\item gegenseitig helfen
+		\end{itemize}
+	\end{block}
+	\pause
+	Der Clou: Ihr müsst die Befehle selbst herausfinden.
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Warm-Up}
+	\begin{block}{geht direkt los hier}
+		\begin{itemize}
+			\item git pull
+			\item git checkout -b ???
+			\item git push ???
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\section{private Branch}
+
+
+\begin{frame}
+	\frametitle{Aufgabe 1}
+	\begin{block}{Move Commit}
+		Die Datei \texttt{???} soll umbenannt werden in \texttt{!!!}.
+		Benennt diese um und macht aus dieser Änderung einen Commit!
+		Verwendet dabei ausschlielich git Befehle!
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 2}
+	\begin{block}{Upps!}
+		\begin{enumerate}
+			\item Löscht den Inhalt von Datei \texttt{???} und schreibt Buchstabensalat!
+			\pause
+			\item Abspeichern!
+			\pause
+			\item Oh nein, lauter Buchstabensalat… Stellt den vorherigen Stand der Datei mit git wieder her!
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 3}
+	\begin{block}{Großes Upps!}
+		\begin{enumerate}
+			\item Datei \texttt{???} muss wieder dran glauben. Buchstabensalat!
+			\pause
+			\item Abspeichern!
+			\pause
+			\item \texttt{git add}, \texttt{git commit}!
+			\pause
+			\item Eigentlich sollte da nicht Buchstabensalat drin stehen, sondern \texttt{Hallo, Welt!}.
+		Korrigiert den commit, ohne einen neuen zu machen!
+		\end{enumerate}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 4}
+	\begin{block}{Weg damit!}
+		Die Datei \texttt{???} gefällt uns auf einmal gar nicht mehr.
+		Löscht sie mit git und macht daraus einen Commit!
+	\end{block}
+\end{frame}
+
+\section{public Branch}
+
+\begin{frame}
+	\frametitle{Gemeinsam genutzte Branches}
+	\begin{block}{Achtung, wir schreiben Geschichte.}
+		\begin{itemize}
+			\item Commits dürfen nicht verändert oder entfernt werden
+				\begin{itemize}
+					\item git-commit ohne --amend
+					\item kein git-rebase
+					\item git-push --force ist Tabu
+					\item Rückgängig-machen grundsätzlich per neuem Commit
+				\end{itemize}
+			\item Reihenfolge der Commits bewahren!
+				\begin{itemize}
+					\item public Branches nicht in andere Branches mergen
+					\item stattdessen rebase im private
+				\end{itemize}
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 1}
+	\begin{block}{Wer macht denn sowas?}
+		Der aktuelle Commit im branch \texttt{?!?} enthält nur Dummes Zeug™.
+		Der Commit davor ist viel besser.
+		Sein Zustand soll wiederhergestellt werden.
+		Repariert es bei euch so, dass ihr es reinen Gewissens pushen könnt.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 2}
+	\begin{block}{Fix it like it’s hot!}
+		Die Datei \texttt{???} ist in den Branches master und preview enthalten (beide public).
+		Das Wort \texttt{foo} in Zeile 3 soll in beiden Branches auf \texttt{bar} geändert werden.
+		Dafür wollt ihr nur einmal committen.
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Aufgabe 3}
+	\begin{block}{Stabil}
+		Der aktuelle Zustand des master-Branches erfüllt die Qualitätskriterien.
+		Die Versionsnummer soll jetzt 1.0 lauten und die Message „\texttt{My work here is done.}“ enthalten.
+	\end{block}
+\end{frame}
+\end{document}
